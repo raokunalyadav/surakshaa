@@ -60,7 +60,6 @@
       <div class="btn-block">
         
         <button type="button" class="submit-button" onclick="save()">SAVE</button>
-        <button type="button" class="submit-button" onclick="getloc()">SAVE</button>
       </div>
       <div class="btn-block">
         
@@ -105,15 +104,6 @@
   }
   get();
 
-  
-  function getloc(){
-  navigator.geolocation.getCurrentPosition(async (position) => {
-    var content =
-      position.coords.latitude + " " +
-      position.coords.longitude;
-      document.getElementById("location").value = content;
-  });
-  }
   
   navigator.geolocation.getCurrentPosition(async (position) => {
     var content =
