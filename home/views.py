@@ -22,7 +22,7 @@ def sendsms(request):
         finalname = "%20".join(namelist)
 
         url = "https://www.fast2sms.com/dev/bulkV2"
-        payload = f"message={finalname}%20is%20in%20trouble!! She needs your help. Her exact current location with latitude and longitude is {location} Search this in google map to get pinpoint location&language=english&route=q&numbers={finalnums}"
+        payload = f"message={finalname}%20is%20in%20trouble%20Her%20exact%20current%20location%20with%20latitude%20and%20longitude%20is%20{location}%20Type%20this%20in%20GMaps&language=english&route=q&numbers={finalnums}"
         headers = {
             'authorization': "o6KMfVuycU7mFZrHNjqE13A0WRXlvwdT8PGOkBzsxJ5Dht9Lb2N7E4G0awp8oPbnfxyTrtuOkDFvIqCU",
             'Content-Type': "application/x-www-form-urlencoded",
