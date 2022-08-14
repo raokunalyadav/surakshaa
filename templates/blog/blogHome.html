@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog{% endblock title %}
+
+{% block blogactive %} active {% endblock blogactive %}
+
+{% block body %}
+<h1>Recent Posts</h1>
+
+{% for post in allPosts %}
+
+<div class="container my-3">
+    <div class="bg-light row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+        <strong class="d-inline-block mb-2 text-primary">Article</strong>
+        <h3 class="mb-0">{{post.title}}</h3>
+        <div class="mb-1 text-muted">{{post.datetime}}</div>
+        <p class="card-text mb-auto"><div class="preview">{{post.content| truncatechars:400|safe}}</div></p>
+        <div>
+      <a href="/blog/{{post.slug}}" role="button" class="btn btn-primary my-2">Continue reading</a>
+        </div>
+      </div>
+      <div class="col-auto d-none d-lg-block">
+        <img class="bd-placeholder-img" width="200" height="250" src="{{post.thumbnail.url}}" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+      </div>
+    </div>
+</div>
+{% endfor %}
+
+<script>
+  var preview = document.getElementsByClassName('preview');
+  Array.from(preview).forEach((element)=>{
+    element.innerHTML = element.innerText;
+  })
+</script>
+{% endblock body %}
